@@ -1,0 +1,12 @@
+[package]
+name = "raptor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Add dependencies as needed, for example:
+# nom = "7.1.0"  # for parsing
+
+[[bin]]
+name = "raptor"
+path = "src/main.rs"
