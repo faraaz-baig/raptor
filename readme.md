@@ -29,7 +29,7 @@ cargo build
 
 ### Usage
 
-To compile a RustScript source file, use the following command:
+To compile a Raptor source file, use the following command:
 
 ```bash
 cargo run -- path/to/your_script.rs
@@ -39,12 +39,70 @@ This will process the source file and generate the corresponding Rust code. The 
 
 ### Examples
 
-Here is a simple example of a RustScript source file (`examples/hello_world.rs`):
+Here is a simple overview of a raptor lang (`examples/hello_world.rs`):
 
 ```rap
-main() -> None {
-    print("Hello, world!")
-}
+# Variable declarations
+let x = 5
+let y = 10.5
+let name = "Alice"
+
+# Function definition
+fn add(a: int, b: int) -> int:
+    return a + b
+
+# Mutable variables
+let mut counter = 0
+
+# Loops
+while counter < 5:
+    print(counter)
+    counter = counter + 1
+
+# Conditionals
+if x > 3:
+    print("x is greater than 3")
+else:
+    print("x is not greater than 3")
+
+# Lists (will be translated to Rust Vec)
+let numbers = [1, 2, 3, 4, 5]
+
+# For loop (iteration over lists)
+for num in numbers:
+    print(num)
+
+# Structs
+struct Person:
+    name: string
+    age: int
+
+# Creating an instance of a struct
+let alice = Person{name: "Alice", age: 30}
+
+# Match expression (similar to Rust's match)
+match x:
+    1 -> print("One")
+    2 -> print("Two")
+    _ -> print("Other")
+
+# Error handling (using Result type)
+fn divide(a: float, b: float) -> Result<float, string>:
+    if b == 0:
+        return Err("Division by zero")
+    return Ok(a / b)
+
+# Using the Result
+let result = divide(10, 2)
+match result:
+    Ok(value) -> print("Result: " + str(value))
+    Err(msg) -> print("Error: " + msg)
+
+# Importing modules
+import math
+
+# Using imported functions
+let sqrt_result = math.sqrt(16)
 ```
 
 Run the following command to compile and execute:

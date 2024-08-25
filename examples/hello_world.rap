@@ -1,3 +1,17 @@
-fn main() {
-    println!("Hello, world!");
-}
+# examples/hello_world.rap
+
+fn main():
+    let name = "Raptor"
+    print("Hello, " + name + "!")
+
+    let x = 5
+    let y = 7
+    
+    if x < y:
+        print(str(x) + " is less than " + str(y))
+    else:
+        print(str(x) + " is not less than " + str(y))
+
+    let numbers = [1, 2, 3, 4, 5]
+    for num in numbers:
+        print("Number: " + str(num))

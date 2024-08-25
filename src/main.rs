@@ -4,13 +4,22 @@ mod ast;
 mod analyzer;
 mod codegen;
 
+use std::fs;
+use crate::lexer::{Lexer, Token};
+
 fn main() {
-    println!("RustScript Compiler");
-    // TODO: Implement compiler pipeline
-    // 1. Read input file
-    // 2. Tokenize (lexer)
-    // 3. Parse (parser)
-    // 4. Analyze (semantic analyzer)
-    // 5. Generate Rust code (code generator)
-    // 6. Output Rust code to file
+    println!("Welcome to Raptor Compiler!");
+    
+    let input = fs::read_to_string("examples/hello_world.rap")
+        .expect("Failed to read the input file");
+
+    let mut lexer = Lexer::new(&input);
+    
+    loop {
+        let token = lexer.next_token();
+        println!("{:?}", token);
+        if token == Token::EOF {
+            break;
+        }
+    }
 }
